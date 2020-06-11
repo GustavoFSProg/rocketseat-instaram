@@ -18,7 +18,7 @@ class Feed extends Component {
             <img src={more} alt="mais" />
           </header>
           <img
-            src="http://localhost:3000/files/abandono-de-animais-1.jpg"
+            src="https://omnistack-instagram.herokuapp.com/files/abandono-de-animais-1.jpg"
             alt="uma"
           />
 
@@ -46,7 +46,7 @@ class Feed extends Component {
             <img src={more} alt="mais" />
           </header>
           <img
-            src="http://localhost:3000/files/abandono-de-animais-1.jpg"
+            src="https://omnistack-instagram.herokuapp.com/files/Daninca_milchael_andretti_texas.jpg"
             alt="uma"
           />
 

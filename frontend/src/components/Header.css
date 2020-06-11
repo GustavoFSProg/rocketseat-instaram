@@ -14,3 +14,8 @@ header#main-header .header-content {
   align-items: center;
   justify-content: space-between;
 }
+
+header#main-header .header-content span {
+  padding: 10px 30px;
+  text-decoration: none;
+}
