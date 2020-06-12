@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import api from '../services/api'
 import io from 'socket.io-client'
+
 import './Feed.css'
+
 import more from '../assets/more.svg'
 import like from '../assets/like.svg'
 import comment from '../assets/comment.svg'
@@ -10,6 +12,14 @@ import send from '../assets/send.svg'
 class Feed extends Component {
   state = {
     feed: [],
+  }
+
+  async componentDidMount() {
+    this.registerToSocket()
+
+    const response = await api.get('posts')
+
+    this.setState({ feed: response.data })
   }
 
   registerToSocket = () => {
@@ -28,18 +38,10 @@ class Feed extends Component {
     })
   }
 
-  async componentDidMount() {
-    this.registerToSocket()
-
-    const { data } = await api.get('posts')
-
-    console.log('Response:  ' + data)
-
-    this.setState({ feed: data })
-  }
-
   handleLike = (id) => {
     api.post(`/posts/${id}/like`)
+
+    window.location.reload()
   }
 
   render() {
@@ -56,7 +58,7 @@ class Feed extends Component {
             </header>
             <img
               src={`https://omnistack-instagram.herokuapp.com/files/${post.image}`}
-              alt="uma"
+              alt="imagem"
             />
 
             <footer>
