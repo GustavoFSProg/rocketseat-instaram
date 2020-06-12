@@ -1,25 +1,15 @@
 import React, { Component } from 'react'
+import api from '../services/api'
+import io from 'socket.io-client'
 import './Feed.css'
 import more from '../assets/more.svg'
 import like from '../assets/like.svg'
 import comment from '../assets/comment.svg'
 import send from '../assets/send.svg'
-import api from '../services/api'
-import io from 'socket.io-client'
 
 class Feed extends Component {
   state = {
     feed: [],
-  }
-
-  async componentDidMount() {
-    this.registerToSocket()
-
-    const { data } = await api.get('posts')
-
-    console.log('Response:  ' + data)
-
-    this.setState({ feed: data })
   }
 
   registerToSocket = () => {
@@ -32,10 +22,20 @@ class Feed extends Component {
     socket.on('like', (likedPost) => {
       this.setState({
         feed: this.state.feed.map((post) =>
-          post._id === likedPost.id ? likedPost : post
+          post._id === likedPost._id ? likedPost : post
         ),
       })
     })
+  }
+
+  async componentDidMount() {
+    this.registerToSocket()
+
+    const { data } = await api.get('posts')
+
+    console.log('Response:  ' + data)
+
+    this.setState({ feed: data })
   }
 
   handleLike = (id) => {
