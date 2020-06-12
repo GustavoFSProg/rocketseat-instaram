@@ -11,7 +11,6 @@ export default function header() {
         <Link to="/">
           {' '}
           <img src={logo} alt="InstaRocket" />
-          <span>By Gustavo</span>
         </Link>
         <Link to="/new">
           <img src={camera} alt="enviar-publicacao" />

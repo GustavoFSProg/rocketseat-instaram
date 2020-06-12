@@ -4,66 +4,78 @@ import more from '../assets/more.svg'
 import like from '../assets/like.svg'
 import comment from '../assets/comment.svg'
 import send from '../assets/send.svg'
+import api from '../services/api'
+import io from 'socket.io-client'
 
 class Feed extends Component {
+  state = {
+    feed: [],
+  }
+
+  async componentDidMount() {
+    this.registerToSocket()
+
+    const { data } = await api.get('posts')
+
+    console.log('Response:  ' + data)
+
+    this.setState({ feed: data })
+  }
+
+  registerToSocket = () => {
+    const socket = io('https://omnistack-instagram.herokuapp.com')
+
+    socket.on('post', (newPost) => {
+      this.setState({ feed: [newPost, ...this.state.feed] })
+    })
+
+    socket.on('like', (likedPost) => {
+      this.setState({
+        feed: this.state.feed.map((post) =>
+          post._id === likedPost.id ? likedPost : post
+        ),
+      })
+    })
+  }
+
+  handleLike = (id) => {
+    api.post(`/posts/${id}/like`)
+  }
+
   render() {
     return (
       <section id="post-list">
-        <article>
-          <header>
-            <div className="user-info">
-              <span>Gustavo Sohne</span>
-              <span className="place">Novo Hamburgo</span>
-            </div>
-            <img src={more} alt="mais" />
-          </header>
-          <img
-            src="https://omnistack-instagram.herokuapp.com/files/abandono-de-animais-1.jpg"
-            alt="uma"
-          />
+        {this.state.feed.map((post) => (
+          <article key={post._id}>
+            <header>
+              <div className="user-info">
+                <span>{post.author}</span>
+                <span className="place">{post.place}</span>
+              </div>
+              <img src={more} alt="mais" />
+            </header>
+            <img
+              src={`https://omnistack-instagram.herokuapp.com/files/${post.image}`}
+              alt="uma"
+            />
 
-          <footer>
-            <div className="actions">
-              <img src={like} alt="like" />
-              <img src={comment} alt="comment" />
-              <img src={send} alt="send" />
-            </div>
-            <strong> 900 Curtidas </strong>
+            <footer>
+              <div className="actions">
+                <button type="button" onClick={() => this.handleLike(post._id)}>
+                  <img src={like} alt="like" />
+                </button>
+                <img src={comment} alt="comment" />
+                <img src={send} alt="send" />
+              </div>
+              <strong> {post.likes} Curtidas </strong>
 
-            <p>
-              Um post muito massa da omnisack!
-              <span>#react #omnistack #top</span>
-            </p>
-          </footer>
-        </article>
-
-        <article>
-          <header>
-            <div className="user-info">
-              <span>Gustavo Sohne</span>
-              <span className="place">Novo Hamburgo</span>
-            </div>
-            <img src={more} alt="mais" />
-          </header>
-          <img
-            src="https://omnistack-instagram.herokuapp.com/files/Daninca_milchael_andretti_texas.jpg"
-            alt="uma"
-          />
-
-          <footer>
-            <div className="actions">
-              <img src={like} alt="like" />
-              <img src={comment} alt="comment" />
-              <img src={send} alt="send" />
-            </div>
-            <strong> 900 Curtidas </strong>
-
-            <p>
-              Um post muito massa da omnisack!
-              <span>#react #omnistack #top</span>
-            </p>
-          </footer>
-        </article>
+              <p>
+                {post.description}
+                <span>{post.hashtags}</span>
+              </p>
+            </footer>
+          </article>
+        ))}
       </section>
     )
   }
