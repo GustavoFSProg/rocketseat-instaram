@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="UI Components" src="src/assets/ui-components.png" width="600px" />
+    <img alt="UI Components" src="instarocket.png" width="600px" />
 </h1>
 
 <p align="center">
