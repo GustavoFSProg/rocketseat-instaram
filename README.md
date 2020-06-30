@@ -16,7 +16,8 @@
   <a href="docs/index.md">Docs</a>
 </p>
   <p>
-    <A href="https://instagram-gfs.netlify.app/instagram-gfs.netlify.app</a></
+    <a href="https://instagram-gfs.netlify.app/instagram-gfs.netlify.app</a>
+              <a href="#rocket-stack">Stack</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
     </p>
 
 <br>
