@@ -30,7 +30,7 @@
 This project was build with the following stack:
 
 - [React](https://reactjs.org) <img alt="react" src="logo-og.png" width="35px" />
-- [Styled Components](https://styled-components.com/) <img alt="react" src="src/assets/styled-components.png" width="35px" />
+- [Styled Components](https://styled-components.com/)
 
 <p style="color: grey; font-size: 12px">TODO...</p>
 
