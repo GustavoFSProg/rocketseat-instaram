@@ -22,7 +22,7 @@
 <br>
 
 <div align="center">
-  <img src="src/assets/lego.jpg" alt="lego" />
+ 
 </div>
 
 ## :rocket: Stack
