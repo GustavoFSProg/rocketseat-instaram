@@ -32,11 +32,7 @@ This project was build with the following stack:
 <p style="color: grey; font-size: 12px">TODO...</p>
 
 ## 💻 Project
-
-This project consists of a library of commons components for web and mobile apps
-builted with react and react-native technologies.
-
-## 🤔 How to contribute
+Este Projeto é para construir uma aplicação Api  Rest em Node js, React e React-native e  web e mobile app
 
 - Fork this repository;
 - Create a branch with your feature: `git checkout -b my-feature`;
@@ -44,11 +40,5 @@ builted with react and react-native technologies.
 - Push to your branch: `git push origin my-feature`.
 
 Delete your branch after the merge of your pull request is done.
-
-## :memo: License
-
-This project is licensed by MIT. Check [LICENSE](LICENSE.md) for more details.
-
 ---
 
-Made by UI - Components
