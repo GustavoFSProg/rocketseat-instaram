@@ -16,7 +16,9 @@
   <a href="docs/index.md">Docs</a>
 </p>
 
+  <p align="center">
     <a href="https://instagram-gfs.netlify.app/"> URL Project</a>
+    </p>
             
   
 
