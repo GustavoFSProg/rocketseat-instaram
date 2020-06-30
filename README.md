@@ -15,10 +15,10 @@
   <a href="#memo-license">License</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="docs/index.md">Docs</a>
 </p>
-  <p>
+
     <a href="https://instagram-gfs.netlify.app/"> URL Project</a>
             
-    </p>
+  
 
 <br>
 
