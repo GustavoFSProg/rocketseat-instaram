@@ -33,7 +33,7 @@
 This project was build with the following stack:
 
 - [React](https://reactjs.org) 
-- [Styled Components](https://styled-components.com/)
+- [Nodejs](https://styled-components.com/)
 
 <p style="color: grey; font-size: 12px">TODO...</p>
 
